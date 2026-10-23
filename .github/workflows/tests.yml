@@ -41,7 +41,7 @@ jobs:
           - 6379:6379
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v7
 
     - name: Copy our API library config into the tests/ folder
       run: cp -a ./.github/ci-files/local.config.php tests/local.config.php
@@ -136,7 +136,7 @@ jobs:
       run: bash <(curl -s https://codecov.io/bash)
 
     - name: Upload logs as artifacts
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v7
       if: always()
       with:
         name: mautic-logs
@@ -154,7 +154,7 @@ jobs:
     name: CS & PHPSTAN tests
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v7
 
     - name: Setup PHP, with composer and extensions
       uses: shivammathur/setup-php@v2
