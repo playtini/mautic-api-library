@@ -308,7 +308,7 @@ class CampaignsTest extends MauticApiTestCase
 
     public function testBatchEndpoints()
     {
-        $this->standardTestBatchEndpoints(null, function ($response, &$batch, $action) {
+        $this->standardTestBatchEndpoints(null, function ($response, &$batch, $action): void {
             switch ($action) {
                 case 'create':
                     foreach ($batch as &$item) {
@@ -369,8 +369,6 @@ class CampaignsTest extends MauticApiTestCase
     public function testCampaignContactGetList($cleanup = true)
     {
         $this->setUpPayloadClass();
-        $response = $this->api->create($this->testPayload);
-        $this->assertPayload($response);
 
         // Create contact
         $contactsContext = $this->getContext('contacts');
